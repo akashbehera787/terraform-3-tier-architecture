@@ -149,10 +149,6 @@ resource "aws_nat_gateway" "nat" {
 }
 
 
-
-
-
-
 # Create App layer route table
 resource "aws_route_table" "application-rt" {
   vpc_id = aws_vpc.my-vpc.id
