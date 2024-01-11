@@ -138,7 +138,7 @@ resource "aws_instance" "webserver1" {
   ami                    = "ami-0d5eff06f840b45e9"
   instance_type          = "t2.micro"
   availability_zone      = "us-east-1a"
-  key_name               = "rahammm"
+  key_name               = "us-east-1-key"
   vpc_security_group_ids = [aws_security_group.webserver-sg.id]
   subnet_id              = aws_subnet.web-subnet-1.id
   user_data              = "${file("apache.sh")}"
@@ -152,7 +152,7 @@ resource "aws_instance" "webserver2" {
   ami                    = "ami-0d5eff06f840b45e9"
   instance_type          = "t2.micro"
   availability_zone      = "us-east-1b"
-  key_name               = "rahammm"
+  key_name               = "us-east-1-key"
   vpc_security_group_ids = [aws_security_group.webserver-sg.id]
   subnet_id              = aws_subnet.web-subnet-2.id
   user_data              = "${file("apache.sh")}"
@@ -167,7 +167,7 @@ resource "aws_instance" "appserver1" {
   ami                    = "ami-0d5eff06f840b45e9"
   instance_type          = "t2.micro"
   availability_zone      = "us-east-1a"
-  key_name               = "rahammm"
+  key_name               = "us-east-1-key"
   vpc_security_group_ids = [aws_security_group.appserver-sg.id]
   subnet_id              = aws_subnet.application-subnet-1.id
   tags = {
@@ -179,7 +179,7 @@ resource "aws_instance" "appserver2" {
   ami                    = "ami-0d5eff06f840b45e9"
   instance_type          = "t2.micro"
   availability_zone      = "us-east-1b"
-  key_name               = "rahammm"
+  key_name               = "us-east-1-key"
   vpc_security_group_ids = [aws_security_group.appserver-sg.id]
   subnet_id              = aws_subnet.application-subnet-2.id
 
@@ -327,7 +327,7 @@ resource "aws_lb_listener" "external-elb" {
   }
 }
 
-/*resource "aws_db_instance" "default" {
+resource "aws_db_instance" "default" {
   allocated_storage      = 10
   db_subnet_group_name   = aws_db_subnet_group.default.id
   engine                 = "mysql"
@@ -335,11 +335,11 @@ resource "aws_lb_listener" "external-elb" {
   instance_class         = "db.t2.micro"
   multi_az               = true
   db_name                = "mydb"
-  username               = "raham"
-  password               = "Rahamshaik#444555"
+  username               = "akash"
+  password               = "akash@112233"
   skip_final_snapshot    = true
   vpc_security_group_ids = [aws_security_group.database-sg.id]
-}*/
+}
 
 resource "aws_db_subnet_group" "default" {
   name       = "main"
